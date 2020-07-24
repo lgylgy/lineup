@@ -105,7 +105,8 @@ export default class App extends React.Component<IProps, IState> {
       (playerId: string) => this.state.players[playerId],
     );
     const isDropDisabled =
-      category.type !== droppableType && category.type !== '';
+      (category.type !== droppableType && category.type !== undefined) ||
+      players.length >= category.limit;
     return (
       <List
         key={category.id}

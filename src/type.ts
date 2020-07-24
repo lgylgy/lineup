@@ -7,6 +7,7 @@ export interface IPlayer {
 export interface ICategory {
   id: string;
   title: string;
-  type: string;
+  type?: string;
   playerIds: string[];
+  limit: number;
 }

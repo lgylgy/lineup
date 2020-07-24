@@ -1,35 +1,54 @@
 {
   "players": {
+    "player-0": { "id": "player-0", "name": "Player 0", "type": "player" },
     "player-1": { "id": "player-1", "name": "Player 1", "type": "player" },
     "player-2": { "id": "player-2", "name": "Player 2", "type": "player" },
     "player-3": { "id": "player-3", "name": "Player 3", "type": "player" },
     "player-4": { "id": "player-4", "name": "Player 4", "type": "player" },
-    "player-5": { "id": "player-5", "name": "Player 5", "type": "goalkeeper" }
+    "player-5": { "id": "player-5", "name": "Player 5", "type": "player" },
+    "player-6": { "id": "player-6", "name": "Player 6", "type": "player" },
+    "player-7": { "id": "player-7", "name": "Player 7", "type": "goalkeeper" },
+    "player-8": { "id": "player-8", "name": "Player 8", "type": "goalkeeper" },
+    "player-9": { "id": "player-9", "name": "Player 9", "type": "goalkeeper" }
   },
   "categories": {
     "unassigned": {
       "id": "unassigned",
       "title": "Players",
-      "type": "",
-      "playerIds": ["player-1", "player-2", "player-3", "player-4", "player-5"]
+      "playerIds": [
+        "player-0",
+        "player-1",
+        "player-2",
+        "player-3",
+        "player-4",
+        "player-5",
+        "player-6",
+        "player-7",
+        "player-8",
+        "player-9"
+      ],
+      "limit": 20
     },
     "goalkeeper": {
       "id": "goalkeeper",
       "title": "Goalkeepers",
       "type": "goalkeeper",
+      "limit": 2,
       "playerIds": []
     },
     "defender": {
       "id": "defender",
-      "title": "Players",
+      "title": "defender",
       "type": "player",
+      "limit": 4,
       "playerIds": []
     },
     "striker": {
       "id": "striker",
-      "title": "",
+      "title": "striker",
       "type": "player",
-      "playerIds": []
+      "playerIds": [],
+      "limit": 4
     }
   },
   "categoryNames": ["unassigned", "goalkeeper", "defender", "striker"]
