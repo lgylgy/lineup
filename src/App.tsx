@@ -40,9 +40,11 @@ export default class App extends React.Component<IProps, IState> {
 
   private onDragStart = (initial: DragStart, provided: ResponderProvided) => {
     const player = this.state.players[initial.draggableId];
-    this.setState({
-      droppableType: player.type,
-    });
+    if (player.type !== this.state.droppableType) {
+      this.setState({
+        droppableType: player.type,
+      });
+    }
   };
 
   private onDragEnd = (result: DropResult, provided: ResponderProvided) => {

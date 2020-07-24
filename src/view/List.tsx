@@ -13,8 +13,10 @@ interface IProps {
 const verticalStyles = {
   background: 'lightgrey',
   padding: 4,
-  width: 250,
+  width: 260,
   minHeight: 500,
+  maxHeight: 500,
+  'overflow-y': 'scroll',
 };
 
 const horizontalStyles = {
