@@ -1,29 +1,34 @@
 {
   "players": {
-    "player-1": { "id": "player-1", "name": "Player 1" },
-    "player-2": { "id": "player-2", "name": "Player 2" },
-    "player-3": { "id": "player-3", "name": "Player 3" },
-    "player-4": { "id": "player-4", "name": "Player 4" }
+    "player-1": { "id": "player-1", "name": "Player 1", "type": "player" },
+    "player-2": { "id": "player-2", "name": "Player 2", "type": "player" },
+    "player-3": { "id": "player-3", "name": "Player 3", "type": "player" },
+    "player-4": { "id": "player-4", "name": "Player 4", "type": "player" },
+    "player-5": { "id": "player-5", "name": "Player 5", "type": "goalkeeper" }
   },
   "categories": {
     "unassigned": {
       "id": "unassigned",
       "title": "Players",
-      "playerIds": ["player-1", "player-2"]
+      "type": "",
+      "playerIds": ["player-1", "player-2", "player-3", "player-4", "player-5"]
     },
     "goalkeeper": {
       "id": "goalkeeper",
       "title": "Goalkeepers",
-      "playerIds": ["player-3", "player-4"]
+      "type": "goalkeeper",
+      "playerIds": []
     },
     "defender": {
       "id": "defender",
       "title": "Players",
+      "type": "player",
       "playerIds": []
     },
     "striker": {
       "id": "striker",
       "title": "",
+      "type": "player",
       "playerIds": []
     }
   },

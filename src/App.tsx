@@ -8,6 +8,7 @@ import {
   DropResult,
   ResponderProvided,
   Direction,
+  DragStart,
 } from 'react-beautiful-dnd';
 
 interface IPlayerMap {
@@ -20,8 +21,9 @@ interface ICategoryMap {
 
 interface IState {
   categories: ICategoryMap;
-  categoryNames: string[];
-  players: IPlayerMap;
+  readonly categoryNames: string[];
+  readonly players: IPlayerMap;
+  droppableType?: string;
 }
 
 interface IProps {}
@@ -36,7 +38,17 @@ export default class App extends React.Component<IProps, IState> {
     };
   }
 
+  private onDragStart = (initial: DragStart, provided: ResponderProvided) => {
+    const player = this.state.players[initial.draggableId];
+    this.setState({
+      droppableType: player.type,
+    });
+  };
+
   private onDragEnd = (result: DropResult, provided: ResponderProvided) => {
+    this.setState({
+      droppableType: undefined,
+    });
     const { destination, source, draggableId } = result;
     if (!destination) {
       return;
@@ -87,23 +99,30 @@ export default class App extends React.Component<IProps, IState> {
   };
 
   private renderList(name: string, direction: Direction) {
+    const droppableType = this.state.droppableType;
     const category = this.state.categories[name];
     const players = category.playerIds.map(
       (playerId: string) => this.state.players[playerId],
     );
+    const isDropDisabled =
+      category.type !== droppableType && category.type !== '';
     return (
       <List
         key={category.id}
         category={category}
         players={players}
         direction={direction}
+        isDropDisabled={isDropDisabled}
       />
     );
   }
 
   public render() {
     return (
-      <DragDropContext onDragEnd={this.onDragEnd}>
+      <DragDropContext
+        onDragStart={this.onDragStart}
+        onDragEnd={this.onDragEnd}
+      >
         <div className="nav">{this.renderList('unassigned', 'vertical')}</div>
         <div className="content">
           {this.state.categoryNames

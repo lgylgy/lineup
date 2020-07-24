@@ -7,6 +7,7 @@ interface IProps {
   readonly category: ICategory;
   readonly players: IPlayer[];
   readonly direction: Direction;
+  readonly isDropDisabled: boolean;
 }
 
 const verticalStyles = {
@@ -25,7 +26,7 @@ const horizontalStyles = {
 
 export default class List extends React.Component<IProps, {}> {
   public render() {
-    const { players, category, direction } = this.props;
+    const { players, category, direction, isDropDisabled } = this.props;
     return (
       <>
         <h2>{category.title}</h2>
@@ -34,6 +35,7 @@ export default class List extends React.Component<IProps, {}> {
             droppableId={category.id}
             key={category.id}
             direction={direction}
+            isDropDisabled={isDropDisabled}
           >
             {(provided) => (
               <div
