@@ -2,7 +2,6 @@ import React from 'react';
 import data from './data.json';
 import List from './view/List';
 import { IPlayer, ICategory } from './type';
-import './App.css';
 import {
   DragDropContext,
   DropResult,
@@ -10,6 +9,7 @@ import {
   Direction,
   DragStart,
 } from 'react-beautiful-dnd';
+import { Container, Row, Col } from 'react-bootstrap';
 
 interface IPlayerMap {
   [id: string]: IPlayer;
@@ -126,14 +126,26 @@ export default class App extends React.Component<IProps, IState> {
         onDragStart={this.onDragStart}
         onDragEnd={this.onDragEnd}
       >
-        <div className="nav">{this.renderList('unassigned', 'vertical')}</div>
-        <div className="content">
-          {this.state.categoryNames
-            .filter((value) => value !== 'unassigned')
-            .map((value: string) => {
-              return this.renderList(value, 'horizontal');
-            })}
-        </div>
+        <Container fluid>
+          <Row md={2}>
+            <Col xs={4} md={4}>
+              {this.renderList('unassigned', 'vertical')}
+            </Col>
+            <Col xs={8} md={8}>
+              <Container fluid>
+                <Row md={1}>
+                  <Col>
+                    {this.state.categoryNames
+                      .filter((value) => value !== 'unassigned')
+                      .map((value: string) => {
+                        return this.renderList(value, 'horizontal');
+                      })}
+                  </Col>
+                </Row>
+              </Container>
+            </Col>
+          </Row>
+        </Container>
       </DragDropContext>
     );
   }

@@ -1,0 +1,40 @@
+.pcard {
+  background-color: #456c86;
+  color: #ffffff;
+  margin: 8px 8px 8px 8px;
+}
+
+@media (max-width: 575.98px) {
+  .vcard {
+    width: 100px;
+    height: 25px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .vcard {
+    width: 100px;
+    height: 25px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .vcard {
+    width: 150px;
+    height: 50px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .vcard {
+    width: 200px;
+    height: 50px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .vcard {
+    width: 200px;
+    height: 50px;
+  }
+}
